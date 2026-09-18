@@ -1,0 +1,11 @@
+{
+    "name": "Rahul Sharma",
+    "email": "rahul.sharma@example.com",
+    "password": "Test@12345",
+    "phone": "9876543210",
+    "education": "B.Tech Computer Engineering",
+    "address": "Pune, Maharashtra, India",
+    "college": "Pune Institute of Technology",
+    "skills": "JavaScript, Node.js, MongoDB, React",
+    "role": "Student"
+}
