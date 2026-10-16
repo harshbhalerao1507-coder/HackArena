@@ -1,0 +1,239 @@
+/* =========================================
+   HACKARENA COMPACT FLOATING DOCK
+   Dusk Sky Dark Panel Theme
+   ========================================= */
+
+.dock-container {
+  position: fixed;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: calc(100vw - 24px);
+  z-index: 90; /* Above page content, below modals (z-index: 100) and toasts */
+  pointer-events: auto;
+  overflow: visible;
+}
+
+.dock-slab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap; /* Never wrap onto two lines */
+  gap: 8px;
+  padding: 6px 14px;
+  
+  /* Dusk Sky --panel slab with --steel border */
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  border-radius: 0; /* Strictly NO rounded SaaS pill */
+  
+  /* Hard offset shadow with NO blur & subtle inner bevel */
+  box-shadow: 
+    0 6px 0px 0px var(--panel-shadow),
+    inset 1px 1px 0px 0px rgba(255, 255, 255, 0.22),
+    inset -1px -1px 0px 0px rgba(20, 26, 35, 0.65);
+
+  /* Crucial: overflow visible so tooltips and badges float cleanly without clipping */
+  overflow: visible;
+  position: relative;
+}
+
+/* =========================================
+   NARROW SCREENS (360px and up)
+   ========================================= */
+@media (max-width: 480px) {
+  .dock-container {
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100vw - 16px);
+  }
+
+  .dock-slab {
+    gap: 4px;
+    padding: 5px 8px;
+  }
+}
+
+/* =========================================
+   PROFILE PANEL / MODAL
+   Dusk Sky Dark Panel Theme
+   ========================================= */
+
+.profile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 26, 35, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+  z-index: 95; /* Above dock, below full modals */
+}
+
+.profile-panel {
+  width: min(400px, 94vw);
+  max-height: min(75vh, 600px);
+  overflow-y: auto;
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  box-shadow: 8px 8px 0px 0px var(--panel-shadow);
+  padding: 20px;
+  color: var(--text-on-dark);
+  font-family: var(--font-body);
+}
+
+.profile-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-panel-header h3 {
+  margin: 0;
+  color: var(--gold);
+  font-size: 18px;
+  text-shadow: 1px 1px 0px var(--panel-shadow);
+}
+
+.profile-close-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--steel);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.profile-close-btn:hover {
+  color: var(--torch);
+}
+
+.profile-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  align-items: baseline;
+}
+
+.profile-info-grid .info-label {
+  color: var(--steel);
+  text-shadow: none;
+}
+
+.profile-info-grid .info-value {
+  color: var(--text-on-dark);
+  text-shadow: none;
+}
+
+.profile-edit .form-group {
+  margin-bottom: 12px;
+}
+
+.profile-edit .pixel-input {
+  margin-bottom: 0;
+  font-size: 18px;
+  padding: 6px 8px;
+}
+
+.profile-edit .pixel-label {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+/* =========================================
+   PROFILE PANEL ACTION BUTTONS
+   ========================================= */
+
+.profile-panel .card-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px dashed rgba(158, 178, 189, 0.25);
+  justify-content: stretch;
+}
+
+.profile-panel .card-actions button {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.profile-panel .card-actions button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.profile-panel .card-actions button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px var(--panel-shadow);
+}
+
+/* Edit Scroll / Save: Warm Stone Tablet Style */
+.profile-panel .carved-btn-primary {
+  background-color: var(--stone-mid);
+  color: var(--text-on-stone);
+  border: 2px solid var(--stone-dark);
+  box-shadow: 3px 3px 0px 0px var(--panel-shadow);
+  text-shadow: 1px 1px 0px var(--engrave-highlight);
+}
+
+.profile-panel .carved-btn-primary:hover:not(:disabled) {
+  background-color: var(--stone-light);
+  border-color: var(--gold);
+  filter: brightness(1.05);
+}
+
+/* Cancel / Secondary inside Profile */
+.profile-panel .carved-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-on-dark);
+  border: 2px solid var(--steel);
+  box-shadow: 3px 3px 0px 0px var(--panel-shadow);
+  text-shadow: 1px 1px 0px var(--panel-shadow);
+}
+
+.profile-panel .carved-btn-secondary:hover:not(:disabled) {
+  background-color: #48566B;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Leave Arena: High-Visibility Terracotta Crimson Danger Button */
+.leave-arena-btn,
+.profile-panel .leave-arena-btn {
+  background-color: var(--danger);
+  color: #FFFFFF;
+  border: 2px solid #822F1D;
+  box-shadow: 3px 3px 0px 0px var(--panel-shadow);
+  text-shadow: 1px 1px 0px var(--panel-shadow);
+}
+
+.leave-arena-btn:hover:not(:disabled),
+.profile-panel .leave-arena-btn:hover:not(:disabled) {
+  background-color: #C95338;
+  border-color: var(--torch);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+  filter: brightness(1.1);
+}
+
+.leave-arena-btn:active:not(:disabled),
+.profile-panel .leave-arena-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px var(--panel-shadow);
+}
+

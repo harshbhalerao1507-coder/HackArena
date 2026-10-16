@@ -1,45 +1,320 @@
+/* Student Dashboard Dusk Sky & Stone Theme */
+
 .student-dashboard {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 32px 20px;
-    color: #1f2937;
+    padding: 32px 20px 100px;
+    font-family: var(--font-body);
 }
 
-.dashboard-intro { 
-    color: #64748b; 
+.student-dashboard h1 {
+    font-size: 36px;
+    color: var(--gold);
+    text-shadow: 4px 4px 0px var(--panel-shadow);
+    margin-bottom: 0.5rem;
 }
-.dashboard-error { 
-    margin: 16px 0; 
-    padding: 12px; 
-    color: #991b1b; 
-    background: #fef2f2; 
-    border-radius: 6px; 
-}
-.hackathon-grid { display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; 
-    margin-top: 24px;
- }
-.hackathon-card { display: flex; flex-direction: column; padding: 22px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 3px 10px rgba(15, 23, 42, .06); }
-.hackathon-card h2 { margin: 0 0 12px; }
-.hackathon-card p { margin: 7px 0; line-height: 1.5; }
-.status { font-weight: 700; }
-.status-open { color: #047857; }
-.status-closed { color: #b91c1c; }
-.status-opens-soon { color: #a16207; }
-.card-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 18px; }
-.card-actions button { padding: 9px 14px; border: 0; border-radius: 6px; background: #2563eb; color: white; cursor: pointer; }
-.card-actions .secondary-button { background: #e2e8f0; color: #1e293b; }
-.card-actions button:disabled { cursor: not-allowed; opacity: .6; }
-.details-backdrop { position: fixed; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(15, 23, 42, .55); }
-.details-modal { position: relative; width: min(620px, 100%); max-height: 85vh; overflow-y: auto; padding: 28px; border-radius: 12px; background: white; }
-.details-modal h2 { margin-top: 0; }
-.details-modal p { line-height: 1.55; }
-.close-button { position: absolute; top: 10px; right: 14px; border: 0; background: transparent; font-size: 28px; cursor: pointer; }
 
-.registration-form label { display: block; margin-bottom: 5px; font-weight: bold; }
-.registration-form input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-.member-group { margin-bottom: 15px; padding: 15px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc; }
-.member-group h4 { margin-top: 0; margin-bottom: 10px; }
-.form-group { margin-bottom: 15px; }  
- 
+.dashboard-intro {
+    color: var(--text-on-dark);
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+.dashboard-error {
+    margin: 16px 0;
+    padding: 12px;
+    background-color: var(--danger);
+    color: var(--text-on-dark);
+    border: 2px solid var(--panel-shadow);
+    box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+    text-align: center;
+}
+
+/* FULL WIDTH THEMED CARDS */
+.hackathon-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+.stone-tablet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: var(--stone-mid);
+    border: var(--border-width) solid var(--stone-dark);
+    box-shadow: 8px 8px 0px 0px var(--panel-shadow);
+    
+    color: var(--text-on-stone);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stone-tablet:hover {
+    transform: translateY(-4px);
+    box-shadow: 12px 12px 0px 0px var(--panel-shadow);
+}
+
+/* Inner content area */
+.stone-tablet-inner {
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Engraved Text Styles */
+.engraved-text {
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight), -1px -1px 0px rgba(0,0,0,0.15);
+}
+
+.stone-tablet h2 {
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight), -1px -1px 0px rgba(0,0,0,0.15);
+    margin: 0 0 12px;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Carved Divider */
+.carved-divider {
+    height: 0;
+    border-top: 2px solid rgba(58, 42, 29, 0.35);
+    border-bottom: 2px solid var(--engrave-highlight);
+    margin-bottom: 16px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stone-tablet .tablet-desc {
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight);
+    margin-bottom: 16px;
+    line-height: 1.3;
+    font-size: 18px;
+    /* Limit to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 10px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.info-label {
+    font-family: var(--font-display);
+    font-size: 9px;
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight);
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight);
+}
+
+/* Carved Buttons */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carved-btn {
+    font-family: var(--font-display);
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    cursor: pointer;
+    background-color: transparent;
+    
+    /* Carved Recess Border */
+    border-top: 2px solid rgba(0,0,0,0.4);
+    border-left: 2px solid rgba(0,0,0,0.4);
+    border-bottom: 2px solid var(--engrave-highlight);
+    border-right: 2px solid var(--engrave-highlight);
+    
+    /* Pixel stepped corner emulation */
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+    
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight);
+    transition: all 0.1s ease;
+    flex: 1;
+    min-width: 100px;
+}
+
+.carved-btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.carved-btn:active:not(:disabled) {
+    /* Pressed state */
+    border-top: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--engrave-highlight);
+    border-right: 1px solid var(--engrave-highlight);
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.4);
+    padding: 11px 13px 9px 15px; /* Shift text slightly */
+}
+
+.carved-btn:disabled {
+    opacity: 0.5;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
+.carved-btn-primary {
+    /* Gold inlay */
+    background-color: rgba(227, 171, 85, 0.45);
+    color: var(--text-on-stone);
+}
+
+.carved-btn-primary:hover:not(:disabled) {
+    background-color: rgba(227, 171, 85, 0.7);
+}
+
+.carved-btn-secondary {
+    background-color: rgba(0, 0, 0, 0.08);
+    color: var(--text-on-stone);
+}
+
+.carved-btn-secondary:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.carved-btn.leave-arena-btn {
+    background-color: var(--danger);
+    color: #FFFFFF;
+    border: 2px solid #822F1D;
+    text-shadow: 1px 1px 0px var(--panel-shadow);
+}
+
+.carved-btn.leave-arena-btn:hover:not(:disabled) {
+    background-color: #C95338;
+    border-color: var(--torch);
+}
+
+/* Inlaid Gem Status Badges */
+.gem-badge {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border-top: 1px solid rgba(0,0,0,0.6);
+    border-left: 1px solid rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(255,255,255,0.4);
+    margin-right: 6px;
+    vertical-align: -1px;
+}
+.gem-badge.success {
+    background-color: var(--success);
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.3), inset -1px -1px 2px rgba(0,0,0,0.4);
+}
+.gem-badge.danger {
+    background-color: var(--danger);
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.3), inset -1px -1px 2px rgba(0,0,0,0.4);
+}
+.gem-badge.warning {
+    background-color: var(--torch);
+    box-shadow: inset 1px 1px 2px rgba(255,255,255,0.5), inset -1px -1px 2px rgba(0,0,0,0.5);
+}
+
+.status-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Details and Registration Modals */
+.details-backdrop {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(20, 26, 35, 0.85); /* Cool navy dusk backdrop */
+    z-index: 100;
+}
+
+.details-modal {
+    position: relative;
+    width: min(620px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 28px;
+    background-color: var(--stone-mid);
+    border: var(--border-width) solid var(--stone-dark);
+    box-shadow: 8px 8px 0px 0px var(--panel-shadow);
+    color: var(--text-on-stone);
+}
+
+.details-modal h2 {
+    color: var(--text-on-stone);
+    text-shadow: 1px 1px 0px var(--engrave-highlight);
+}
+
+.details-modal .pixel-label {
+    color: var(--text-on-stone);
+}
+
+.details-modal .pixel-input {
+    background-color: var(--stone-light);
+    color: var(--text-on-stone);
+    border: 2px solid var(--stone-dark);
+    box-shadow: inset 3px 3px 0px 0px rgba(0,0,0,0.18);
+}
+
+.details-modal .pixel-input:focus {
+    border-color: var(--gold-dark);
+    outline: 2px solid var(--gold-dark);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: 0;
+    background: transparent;
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--text-on-stone);
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: var(--danger);
+}
+
+.registration-form .form-group {
+    margin-bottom: 16px;
+}
+
+.member-group {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 2px solid var(--stone-dark);
+    background: var(--stone-light);
+}
+
+.member-group h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-on-stone);
+}

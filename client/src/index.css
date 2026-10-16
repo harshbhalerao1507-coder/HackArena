@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  /* =========================================
+     DUSK SKY PALETTE
+     ========================================= */
+
+  /* Backgrounds */
+  --bg-deep: #1F2733;            /* Page base, darkest */
+  --bg-sky: #2E3A4D;             /* Gradient end, large surfaces */
+  --bg-input: #27303E;           /* Form inputs on dark surfaces */
+
+  /* Panels, dock, navbars, modals (dark surfaces) */
+  --panel: #3B4759;
+  --panel-border: #9EB2BD;
+  --panel-shadow: #141A23;       /* Very dark navy hard offset shadow with zero blur */
+
+  /* Stone tablets (warm surfaces) */
+  --stone-light: #D9C7A3;
+  --stone-mid: #C4AE86;
+  --stone-dark: #A89468;         /* Grooves, carved edges */
+
+  /* Accents */
+  --gold: #E3AB55;               /* Primary accent, CTAs, headings, active states */
+  --gold-dark: #B9852F;          /* Pressed states, gold borders */
+  --torch: #E2762D;              /* Hover highlights, flames, attention accents */
+  --steel: #9EB2BD;              /* Borders, secondary accent, links on dark, inactive icons */
+
+  /* Text */
+  --text-on-dark: #F3E7CC;
+  --text-muted-on-dark: #B8C2CC; /* Secondary text on dark surfaces (keeps AA contrast) */
+  --text-on-stone: #3A2A1D;
+  --engrave-highlight: #F0E4C8;  /* Light 1px offset under text carved into stone */
+
+  /* Semantic */
+  --success: #7FA05A;
+  --danger: #B5472F;
+  --warning: var(--torch);
+  --info: var(--steel);
+
+  /* Legacy alias mappings for backwards compatibility */
+  --bg-arena-dark: var(--bg-deep);
+  --bg-arena-light: var(--bg-sky);
+  
+  --stone-travertine-light: var(--stone-light);
+  --stone-travertine: var(--stone-mid);
+  --stone-travertine-dark: var(--stone-dark);
+  
+  --color-gold: var(--gold);
+  --color-gold-dark: var(--gold-dark);
+  --color-sand: var(--stone-light);
+  --color-sand-light: var(--text-muted-on-dark);
+  
+  --color-weathered-brown: var(--stone-dark);
+  --color-shadow-hard: var(--panel-shadow);
+  
+  --color-steel: var(--steel);
+  --color-terracotta: var(--danger);
+  --color-laurel: var(--success);
+  
+  --text-parchment: var(--text-on-dark);
+  --text-stone: var(--text-on-stone);
+
+  /* Typography */
+  --font-display: 'Press Start 2P', cursive;
+  --font-body: 'VT323', monospace;
+
+  /* Common */
+  --border-width: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  /* Cool twilight sky vertical gradient with subtle vignette */
+  background: radial-gradient(circle at 50% 20%, var(--bg-sky) 0%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--text-on-dark);
+  font-size: 22px;
+  line-height: 1.5;
+  -webkit-font-smoothing: none;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 3px 3px 0px var(--panel-shadow);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--torch);
+}
+
+/* =========================================
+   DESIGN SYSTEM COMPONENTS (DUSK SKY)
+   ========================================= */
+
+/* Dark Panels */
+.pixel-panel {
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  padding: 1.5rem;
+  box-shadow: 6px 6px 0px 0px var(--panel-shadow);
+  position: relative;
+  color: var(--text-on-dark);
+  border-radius: 0;
+}
+
+/* Buttons Outside Stone */
+.pixel-btn {
+  font-family: var(--font-display);
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease, filter 0.1s ease;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  border-radius: 0;
+  user-select: none;
+}
+
+.pixel-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.pixel-btn:active:not(:disabled) {
+  box-shadow: 2px 2px 0px 0px var(--panel-shadow);
+  transform: translate(2px, 2px);
+}
+
+.pixel-btn:disabled {
+  opacity: 0.5;
+  filter: grayscale(80%);
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow) !important;
+}
+
+/* Primary Button: Gold fill, dark stone text, gold-dark border/shadow */
+.pixel-btn-primary {
+  background-color: var(--gold);
+  color: var(--text-on-stone);
+  border: 3px solid var(--gold-dark);
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+}
+.pixel-btn-primary:hover:not(:disabled) {
+  background-color: #EBB663;
+  border-color: var(--torch);
+  filter: brightness(1.08);
+}
+
+/* Secondary Button: Panel fill, steel border, text-on-dark */
+.pixel-btn-secondary {
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  color: var(--text-on-dark);
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+}
+.pixel-btn-secondary:hover:not(:disabled) {
+  background-color: #48566B;
+  border-color: var(--gold);
+}
+
+/* Danger Button: Danger fill, text-on-dark */
+.pixel-btn-danger {
+  background-color: var(--danger);
+  border: 2px solid #822F1D;
+  color: var(--text-on-dark);
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+}
+.pixel-btn-danger:hover:not(:disabled) {
+  background-color: #C95338;
+}
+
+/* Leave Arena / Logout Destructive Button - High Visibility */
+.leave-arena-btn,
+button.leave-arena-btn {
+  background-color: var(--danger);
+  color: #FFFFFF;
+  border: 2px solid #822F1D;
+  box-shadow: 3px 3px 0px 0px var(--panel-shadow);
+  font-family: var(--font-display);
+  font-size: 11px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-shadow: 1px 1px 0px var(--panel-shadow);
+  border-radius: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  user-select: none;
+}
+.leave-arena-btn:hover:not(:disabled),
+button.leave-arena-btn:hover:not(:disabled) {
+  background-color: #C95338;
+  border-color: var(--torch);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+  filter: brightness(1.1);
+}
+.leave-arena-btn:active:not(:disabled),
+button.leave-arena-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px var(--panel-shadow);
+}
+
+/* Forms: Inputs on dark surfaces */
+.pixel-input, .pixel-select, .pixel-textarea {
+  font-family: var(--font-body);
+  font-size: 20px;
+  background-color: var(--bg-input);
+  color: var(--text-on-dark);
+  border: 2px solid var(--steel);
+  padding: 10px;
+  width: 100%;
+  box-shadow: inset 3px 3px 0px 0px var(--panel-shadow);
+  margin-bottom: 1rem;
+  border-radius: 0;
+}
+
+.pixel-input::placeholder, .pixel-textarea::placeholder {
+  color: var(--text-muted-on-dark);
+  opacity: 0.8;
+}
+
+.pixel-input:focus, .pixel-select:focus, .pixel-textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  border-color: var(--gold);
+}
+
+.pixel-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--text-on-dark);
+  margin-bottom: 8px;
+}
+
+/* Badges */
+.pixel-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  padding: 6px 10px;
+  border: 2px solid var(--panel-shadow);
+  box-shadow: 2px 2px 0px 0px var(--panel-shadow);
+  text-transform: uppercase;
+  border-radius: 0;
+}
+.pixel-badge.success { background-color: var(--success); color: var(--text-on-dark); }
+.pixel-badge.danger { background-color: var(--danger); color: var(--text-on-dark); }
+.pixel-badge.warning { background-color: var(--torch); color: #1D140C; }
+.pixel-badge.info { background-color: var(--steel); color: var(--panel-shadow); }
+.pixel-badge.gold { background-color: var(--gold); color: var(--text-on-stone); }
+
+/* Utilities */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 1rem; }

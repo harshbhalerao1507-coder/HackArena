@@ -1,0 +1,114 @@
+/* =========================================
+   HACKARENA INVITATIONS PAGE
+   Dusk Sky & Stone Tablet Theme
+   ========================================= */
+
+.invitations-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 100px; /* 100px bottom padding so dock never overlaps content */
+  font-family: var(--font-body);
+}
+
+.invitations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.invitations-header h1 {
+  font-size: 36px;
+  color: var(--gold);
+  text-shadow: 4px 4px 0px var(--panel-shadow);
+  margin-bottom: 0.5rem;
+}
+
+.back-to-dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 11px;
+  padding: 10px 16px;
+  align-self: center;
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  color: var(--text-on-dark);
+  box-shadow: 3px 3px 0px 0px var(--panel-shadow);
+  transition: all 0.15s ease;
+}
+
+.back-to-dashboard-btn:hover {
+  background-color: #48566B;
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Success notification message */
+.dashboard-success {
+  margin: 16px 0 24px;
+  padding: 12px 16px;
+  background-color: var(--success);
+  color: var(--text-on-dark);
+  border: 2px solid var(--panel-shadow);
+  box-shadow: 4px 4px 0px 0px var(--panel-shadow);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Grid layout for invitations tablets */
+.invitations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.invitation-card {
+  height: 100%;
+}
+
+/* Empty State: Dark panel style on Dusk Sky */
+.empty-summons-state {
+  text-align: center;
+  padding: 48px 24px;
+  background-color: var(--panel);
+  border: 2px solid var(--steel);
+  box-shadow: 6px 6px 0px 0px var(--panel-shadow);
+  margin: 32px 0;
+}
+
+.empty-message {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 0px var(--panel-shadow);
+}
+
+.empty-subtext {
+  font-size: 20px;
+  color: var(--text-muted-on-dark);
+  max-width: 500px;
+  margin: 0 auto 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .invitations-page {
+    padding: 20px 14px 90px;
+  }
+
+  .invitations-header h1 {
+    font-size: 26px;
+  }
+
+  .invitations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
